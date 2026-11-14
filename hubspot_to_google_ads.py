@@ -69,9 +69,6 @@ def clean_deals(raw_df):
     for col in text_columns:
         df[col] = df[col].str.strip()
 
-    # remove duplicates by gclid
-    df = df.drop_duplicates(subset=['gclid'], keep='first')
-
     # keep only closed won deals
     df = df[df['dealstage'] == 'closedwon'].copy()
 
@@ -79,6 +76,9 @@ def clean_deals(raw_df):
     df['gclid'] = df['gclid'].replace('', pd.NA)
     df = df.dropna(subset=['gclid'])
 
+    # remove duplicates by gclid
+    df = df.drop_duplicates(subset=['gclid'], keep='first')
+    
     # change amount to a number
     df['amount'] = pd.to_numeric(df['amount'], errors='coerce')
 
