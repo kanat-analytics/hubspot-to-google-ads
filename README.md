@@ -16,9 +16,9 @@ This project takes deals from HubSpot CRM, cleans them, stores them in BigQuery,
 
 - Keep six columns: id, dealname, dealstage, amount, closedate, gclid.
 - Remove spaces at the start and end of text.
-- Remove duplicates by gclid. The first deal stays.
 - Keep only deals in the stage "closedwon".
 - Remove deals without a gclid.
+- Remove duplicates by gclid. The first deal stays.
 - Change amount to a number.
 - Change the close date to the time zone Asia/Almaty.
 - Write the conversion time in this format: 2026-11-01 00:00:00+05:00
